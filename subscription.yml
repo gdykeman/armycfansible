@@ -1,0 +1,25 @@
+---
+- name: Subscription Manager
+  hosts: aws
+  become: yes
+
+  vars_files:
+    - vars/pass.yml
+
+  tasks:
+    - name: manage subscription
+      redhat_subscription:
+        state: present
+        username: "{{ uname }}"
+        password: "{{ upass }}"
+
+    - name: attach pool
+      command: subscription-manager attach --pool=8a85f98959b4910c0159b803f7ce3ebe
+      ignore_errors: yes
+
+    - name: add subscription repos
+      command: subscription-manager repos --enable rhel-7-server-rh-common-rpms
+      when: "ansible_distribution_major_version == '7'"
+
+#- include: stig6.yml
+- include: ./examples/apache-basic-playbook/site.yml
