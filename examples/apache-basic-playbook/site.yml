@@ -1,5 +1,5 @@
 ---
-- hosts: aws
+- hosts: all
   name: This is a play within a playbook
   become: yes
   vars:

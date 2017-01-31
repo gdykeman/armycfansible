@@ -1,6 +1,6 @@
 ---
 - name: Subscription Manager
-  hosts: aws
+  hosts: all
   become: yes
 
   vars_files:
@@ -21,5 +21,5 @@
       command: subscription-manager repos --enable rhel-7-server-rh-common-rpms
       when: "ansible_distribution_major_version == '7'"
 
-#- include: stig6.yml
+- include: stig6.yml
 - include: ./examples/apache-basic-playbook/site.yml
