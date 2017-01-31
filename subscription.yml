@@ -3,13 +3,6 @@
   hosts: all
   become: yes
 
-  vars_prompt:
-    - name: uname
-      prompt: 'username?'
-      secret: no
-    - name: upass
-      prompt: 'password?'
-
   tasks:
     - name: manage subscription
       redhat_subscription:
