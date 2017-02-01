@@ -2474,32 +2474,32 @@
       - sshd
 
 
-- name: "MEDIUM | V-38613 | AUDIT | The system must not permit root logins using remote access programs such as ssh."
-  command: grep -i PermitRootLogin /etc/ssh/sshd_config
-  failed_when: no
-  changed_when: no
-  register: sshd_root_login_audit
-  tags:
-      - cat2
-      - MEDIUM
-      - audit
-      - V-38613
-      - sshd
+#- name: "MEDIUM | V-38613 | AUDIT | The system must not permit root logins using remote access programs such as ssh."
+#  command: grep -i PermitRootLogin /etc/ssh/sshd_config
+#  failed_when: no
+#  changed_when: no
+#  register: sshd_root_login_audit
+#  tags:
+#      - cat2
+#      - MEDIUM
+#      - audit
+#      - V-38613
+#      - sshd
 
-- name: "MEDIUM | V-38613 | PATCH | The system must not permit root logins using remote access programs such as ssh."
-  lineinfile:
-      state: present
-      dest: /etc/ssh/sshd_config
-      regexp: '^#?PermitRootLogin'
-      line: 'PermitRootLogin no'
-      validate: sshd -t -f %s
-  notify: restart ssh
-  tags:
-      - cat2
-      - medium
-      - patch
-      - V-38613
-      - sshd
+#- name: "MEDIUM | V-38613 | PATCH | The system must not permit root logins using remote access programs such as ssh."
+#  lineinfile:
+#      state: present
+#      dest: /etc/ssh/sshd_config
+#      regexp: '^#?PermitRootLogin'
+#      line: 'PermitRootLogin no'
+#      validate: sshd -t -f %s
+#  notify: restart ssh
+#  tags:
+#      - cat2
+#      - medium
+#      - patch
+#      - V-38613
+#      - sshd
 
 - name: "MEDIUM | V-38615 | PATCH | The SSH daemon must be configured with the Department of Defense (DoD) login banner."
   lineinfile:
