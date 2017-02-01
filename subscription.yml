@@ -25,3 +25,5 @@
       yum:
         name: libselinux-python
         state: present
+
+- include: ./jboss-standalone/site.yml
