@@ -1,6 +1,8 @@
 ---
 - name: libselinux-python
-  yum: name=libselinux-python state=present
+  yum:
+    name: libselinux-python
+    state: present
 
 - name: Install Java 1.7 and some basic dependencies
   yum: name={{item}} state=present
