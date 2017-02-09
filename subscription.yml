@@ -26,11 +26,4 @@
         name: libselinux-python
         state: present
 
-    - name: Add User
-      user:
-        name: lvciauser
-        password: "{{ password }}"
-        groups: wheel
-        append: yes
-
 - include: ./jboss-standalone/site.yml
