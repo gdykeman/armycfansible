@@ -7,6 +7,14 @@
     - http_port: 8080
     - https_port: 8443
 
+    
+  pre_tasks:
+    - name: libselinux-python
+      yum:
+        name: libselinux-python
+        state: present
+
+
   roles:
     - jboss-standalone
     - java-app
