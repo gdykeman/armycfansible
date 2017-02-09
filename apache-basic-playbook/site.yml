@@ -39,6 +39,11 @@
         state: started
         enabled: yes
 
+    - name: stop firewalld
+      service:
+        name: firewalld
+        state: stopped
+
   handlers:
     - name: restart apache service
       service:
